@@ -1,19 +1,21 @@
 ﻿#ifndef CONFIG_H
 #define CONFIG_H
 
-// Pin Configurations
+// Pin Definitions
 #define DHT_PIN 2
 #define DHT_TYPE DHT22
-#define HEATER_RELAY_PIN 7
-#define FAN_RELAY_PIN 8
 
-// SIM800L Software Serial Pins
+#define HEATER_RELAY_PIN 4
+#define FAN_RELAY_PIN 5
+
 #define SIM800_RX_PIN 10
 #define SIM800_TX_PIN 11
 
-// Brooding Environmental Limits
-const float MIN_BROODING_TEMP = 31.0; // Critical low (°C)
-const float MAX_BROODING_TEMP = 36.0; // Critical high (°C)
-const unsigned long CHECK_INTERVAL_MS = 5000; // Sensor read frequency
+// Environmental Thresholds & Hysteresis
+#define TARGET_BROODING_TEMP 32.0f
+#define TEMP_HYSTERESIS 1.5f       // Prevents rapid relay flickering
+#define MAX_BROODING_TEMP 35.0f
+
+#define CHECK_INTERVAL_MS 5000     // Sensor poll interval (5 seconds)
 
 #endif
